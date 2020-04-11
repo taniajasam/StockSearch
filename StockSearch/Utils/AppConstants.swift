@@ -15,7 +15,7 @@ struct AppConstants {
     }
     
     struct ViewIdentifiers {
-        
+        static let userTableCellIdentifier = "UsersTableViewCell"
     }
     
     

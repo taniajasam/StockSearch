@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class HomeViewController: UIViewController {
     
@@ -55,6 +56,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: AppConstants.ViewIdentifiers.userTableCellIdentifier, for: indexPath) as? UsersTableViewCell
         cell?.userDisplayNameLabel.text = homeViewModel.users?[indexPath.row].displayName ?? ""
+        cell?.usernameLabel.text = homeViewModel.users?[indexPath.row].username ?? ""
+        cell?.userImageView.kf.setImage(with: URL(string: homeViewModel.users?[indexPath.row].avatarUrl ?? ""))
         return cell!
     }
     

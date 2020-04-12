@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		1ADB3DA159A4FD6550E9E8FE /* Pods_StockSearchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 935D8C1E122858F49F5E0E91 /* Pods_StockSearchTests.framework */; };
+		20240AFE2443869A00EE803E /* WatchlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20240AFD2443869A00EE803E /* WatchlistViewController.swift */; };
 		208E4B112441D03B0091B870 /* HomeViewNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208E4B102441D03B0091B870 /* HomeViewNavigator.swift */; };
 		20BD589B24420B000095F3B8 /* UsersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BD589924420B000095F3B8 /* UsersTableViewCell.swift */; };
 		20BD589C24420B000095F3B8 /* UsersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20BD589A24420B000095F3B8 /* UsersTableViewCell.xib */; };
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		20240AFD2443869A00EE803E /* WatchlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistViewController.swift; sourceTree = "<group>"; };
 		208E4B102441D03B0091B870 /* HomeViewNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewNavigator.swift; sourceTree = "<group>"; };
 		20BD589924420B000095F3B8 /* UsersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewCell.swift; sourceTree = "<group>"; };
 		20BD589A24420B000095F3B8 /* UsersTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UsersTableViewCell.xib; sourceTree = "<group>"; };
@@ -96,6 +98,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		20240AFC2443865200EE803E /* Watchlist */ = {
+			isa = PBXGroup;
+			children = (
+				20240AFD2443869A00EE803E /* WatchlistViewController.swift */,
+			);
+			path = Watchlist;
+			sourceTree = "<group>";
+		};
 		208E4B0E2441CF820091B870 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -179,6 +189,7 @@
 		20DDF27E2441C41300DAE9F3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				20240AFC2443865200EE803E /* Watchlist */,
 				20BD5898244209010095F3B8 /* UserTableCells */,
 				208E4B0E2441CF820091B870 /* Home */,
 				20DDF25D2441C26900DAE9F3 /* Main.storyboard */,
@@ -266,7 +277,6 @@
 				F2336C2D1623B8F201C3DF09 /* Pods-StockSearchTests.debug.xcconfig */,
 				A07D512D7CF746EFE26F403E /* Pods-StockSearchTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -452,6 +462,7 @@
 				20DDF28D2441C55F00DAE9F3 /* WebServiceHelper.swift in Sources */,
 				20DDF2892441C51500DAE9F3 /* UserResponse.swift in Sources */,
 				20DDF2A12441CB5500DAE9F3 /* User+CoreDataProperties.swift in Sources */,
+				20240AFE2443869A00EE803E /* WatchlistViewController.swift in Sources */,
 				20DDF28A2441C51500DAE9F3 /* HomeResponse.swift in Sources */,
 				20DDF29D2441C9B200DAE9F3 /* CoreDataManager.swift in Sources */,
 				20DDF2822441C47300DAE9F3 /* HomeViewController.swift in Sources */,

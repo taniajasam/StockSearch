@@ -12,6 +12,12 @@ class HomeViewModel {
     
     var users: [User]? {
         didSet {
+            filteredUsers = users
+        }
+    }
+    
+    var filteredUsers: [User]? {
+        didSet {
             if let reloadBlock = self.reload {
                 reloadBlock()
             }
@@ -50,5 +56,49 @@ class HomeViewModel {
         CoreDataManager.shared.saveUsers(usersData: usersData, completion: { [weak self] in
             self?.fetchDataFromDB()
         })
+    }
+    
+    func searchUser(queryString: String) {
+        filteredUsers = users
+        if queryString == "" {
+            return
+        }
+        
+        if queryString.count < 2 {
+            return
+        }
+        var searchedUser = [User]()
+        var rankings = [User: Int]()
+        for user in users ?? [] {
+            if !queryString.contains(" ") {
+                var words = [String]()
+                if user.displayName?.contains(" ") ?? false {
+                    words = (user.displayName?.components(separatedBy: " "))!
+                } else {
+                    words.append(user.displayName ?? "")
+                }
+                words = words.map{$0.lowercased()}
+                for (index,word) in words.enumerated() {
+                    if let range = word.range(of: queryString.lowercased()) {
+                        let startPos = word.distance(from: word.startIndex, to: range.lowerBound)
+                        if startPos == 0 {
+                            rankings[user] = index+1
+                            break
+                        }
+                    }
+                }
+            } else {
+                if user.displayName?.lowercased().contains(queryString) ?? false {
+                    rankings[user] = 1
+                }
+            }
+            
+            for (key,_) in rankings.sorted(by: {$0.1 < $1.1}) {
+                if !searchedUser.contains(key) {
+                    searchedUser.append(key)
+                }
+            }
+        }
+        filteredUsers = searchedUser
     }
 }

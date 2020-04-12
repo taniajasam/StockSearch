@@ -26,13 +26,14 @@ class HomeViewController: UIViewController {
         usersTableView.rowHeight = UITableView.automaticDimension
         usersTableView.estimatedRowHeight = 100
         searchBar.backgroundImage = UIImage()
-        self.headerLabel.frame = CGRect(x: 16, y: 80, width: 80, height: 40)
-        self.headerLabel.font = UIFont(name: "MarkerFelt-Wide", size: 25)
+        self.headerLabel.frame = CGRect(x: 16, y: 80, width: 120, height: 40)
+        self.headerLabel.font = UIFont(name: "Rockwell", size: 32)
         
         navigator = HomeViewNavigator(navigator: self.navigationController)
         
         homeViewModel.reload = {
             DispatchQueue.main.async { [weak self] in
+                self?.usersTableView.reloadData()
                 //                self?.setupViews()
                 //                print(self?.homeViewModel.users?[46].displayName ?? "")
             }
@@ -50,14 +51,14 @@ class HomeViewController: UIViewController {
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return homeViewModel.users?.count ?? 0
+        return homeViewModel.filteredUsers?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: AppConstants.ViewIdentifiers.userTableCellIdentifier, for: indexPath) as? UsersTableViewCell
-        cell?.userDisplayNameLabel.text = homeViewModel.users?[indexPath.row].displayName ?? ""
-        cell?.usernameLabel.text = homeViewModel.users?[indexPath.row].username ?? ""
-        cell?.userImageView.kf.setImage(with: URL(string: homeViewModel.users?[indexPath.row].avatarUrl ?? ""))
+        cell?.userDisplayNameLabel.text = homeViewModel.filteredUsers?[indexPath.row].displayName ?? ""
+        cell?.usernameLabel.text = homeViewModel.filteredUsers?[indexPath.row].username ?? ""
+        cell?.userImageView.kf.setImage(with: URL(string: homeViewModel.filteredUsers?[indexPath.row].avatarUrl ?? ""))
         return cell!
     }
     
@@ -66,18 +67,18 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         if usersTableView.contentOffset.y == 0 {
             UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseIn, animations: {
                 self.headerViewHeightConstraint.constant = 120
-                self.headerLabel.frame = CGRect(x: 16, y: 80, width: 80, height: 40)
-                self.headerLabel.font = UIFont(name: "MarkerFelt-Wide", size: 25)
+                self.headerLabel.frame = CGRect(x: 16, y: 80, width: 120, height: 40)
+                self.headerLabel.font = UIFont(name: "Rockwell", size: 32)
                 self.view.layoutIfNeeded()
-
+                
             }) { (isCompleted) in
             }
             
         } else if usersTableView.contentOffset.y > 0 {
             UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseIn, animations: {
                 self.headerViewHeightConstraint.constant = 60
-                self.headerLabel.frame = CGRect(x: self.headerView.frame.size.width/2 - 40, y: 16, width: 80, height: 40)
-                self.headerLabel.font = UIFont(name: "MarkerFelt-Wide", size: 18)
+                self.headerLabel.frame = CGRect(x: self.headerView.frame.size.width/2 - 60, y: 16, width: 120, height: 40)
+                self.headerLabel.font = UIFont(name: "Rockwell", size: 22)
                 self.view.layoutIfNeeded()
             }) { (isCompleted) in
             }
@@ -85,4 +86,10 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+}
+
+extension HomeViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        homeViewModel.searchUser(queryString: searchText)
+    }
 }

@@ -25,7 +25,6 @@ class HomeViewModel {
     }
     
     var reload: (() -> Void)? = nil
-    var error: (() -> Void)? = nil
     
     func fetchDataFromDB() {
         let fetchedData = CoreDataManager.shared.fetchUsers()
@@ -42,10 +41,6 @@ class HomeViewModel {
             if let homeResponse = homeResponse {
                 if homeResponse.users?.count ?? 0 > 0 {
                     weakSelf?.saveDataToDB(usersData: homeResponse.users ?? [])
-                }
-            } else {
-                if let errorBlock = weakSelf?.error {
-                    errorBlock()
                 }
             }
         })

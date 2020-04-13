@@ -21,11 +21,18 @@ struct AppConstants {
     
     
     struct ViewFrames {
+        struct Origin {
+            static let headerLabelOrigin                = CGPoint(x: 16, y: 80)
+            static let headerLabelTranslatedY:CGFloat   = 16
+        }
+        
         struct Height {
-            
+            static let headerViewHeight:CGFloat = 120
+            static let headerLabel:CGFloat      = 40
         }
         struct Width {
-            
+            static let headerLabel:CGFloat      = 120
+
         }
     }
 }

@@ -12,15 +12,16 @@ import Kingfisher
 class HomeViewController: UIViewController {
     
     @IBOutlet weak var headerLabel: UILabel!
-    
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var usersTableView: UITableView!
     @IBOutlet weak var headerViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var noDataErrorLabel: UILabel!
-    
     @IBOutlet weak var searchBar: UISearchBar!
+    
     private let homeViewModel = HomeViewModel()
     private var navigator: IHomeViewNavigator?
+    
+//MARK: - View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,9 +37,11 @@ class HomeViewController: UIViewController {
         homeViewModel.fetchDataFromDB()
     }
     
+//MARK: - Helper Methods
+    
     func setUpViews() {
        searchBar.backgroundImage = UIImage()
-        self.headerLabel.frame = CGRect(x: 16, y: 80, width: 120, height: 40)
+        self.headerLabel.frame = CGRect(x: AppConstants.ViewFrames.Origin.headerLabelOrigin.x, y: AppConstants.ViewFrames.Origin.headerLabelOrigin.y, width: AppConstants.ViewFrames.Width.headerLabel, height: AppConstants.ViewFrames.Height.headerLabel)
         self.headerLabel.font = UIFont(name: "Rockwell", size: 32)
     }
     
@@ -48,15 +51,21 @@ class HomeViewController: UIViewController {
         usersTableView.register(UINib(nibName: AppConstants.ViewIdentifiers.userTableCellIdentifier, bundle: nil), forCellReuseIdentifier: AppConstants.ViewIdentifiers.userTableCellIdentifier)
     }
     
-    @IBAction func didClickOnWatchlistButton(_ sender: Any) {
-        navigator?.showWatchlistView()
-    }
-    
     func setupViewForNoData(shouldShowError: Bool) {
         usersTableView.isHidden = shouldShowError
         noDataErrorLabel.isHidden = !shouldShowError
     }
+    
+//MARK: - Action Methods
+    
+    @IBAction func didClickOnWatchlistButton(_ sender: Any) {
+        navigator?.showWatchlistView()
+    }
+    
+    
 }
+
+//MARK: - Delegate Methods
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
@@ -81,8 +90,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         
         if usersTableView.contentOffset.y == 0 {
             UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseIn, animations: {
-                self.headerViewHeightConstraint.constant = 120
-                self.headerLabel.frame = CGRect(x: 16, y: 80, width: 120, height: 40)
+                self.headerViewHeightConstraint.constant = AppConstants.ViewFrames.Height.headerViewHeight
+                self.headerLabel.frame = CGRect(x: AppConstants.ViewFrames.Origin.headerLabelOrigin.x, y: AppConstants.ViewFrames.Origin.headerLabelOrigin.y, width: AppConstants.ViewFrames.Width.headerLabel, height: AppConstants.ViewFrames.Height.headerLabel)
                 self.headerLabel.font = UIFont(name: "Rockwell", size: 32)
                 self.view.layoutIfNeeded()
                 
@@ -91,8 +100,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             
         } else if usersTableView.contentOffset.y > 0 {
             UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseIn, animations: {
-                self.headerViewHeightConstraint.constant = 60
-                self.headerLabel.frame = CGRect(x: self.headerView.frame.size.width/2 - 60, y: 16, width: 120, height: 40)
+                self.headerViewHeightConstraint.constant = AppConstants.ViewFrames.Height.headerViewHeight/2
+                self.headerLabel.frame = CGRect(x: self.headerView.frame.size.width/2 - AppConstants.ViewFrames.Width.headerLabel/2, y: AppConstants.ViewFrames.Origin.headerLabelTranslatedY, width: AppConstants.ViewFrames.Width.headerLabel, height: AppConstants.ViewFrames.Height.headerLabel)
                 self.headerLabel.font = UIFont(name: "Rockwell", size: 22)
                 self.view.layoutIfNeeded()
             }) { (isCompleted) in

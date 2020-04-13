@@ -39,29 +39,22 @@ class UsersTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         setUpViews()
-        addShadowView()
-        
+        addShadowView(customView: containerView)
+        addShadowView(customView: actionContainerView)
     }
     
     func setUpViews() {
         userImageView.layer.cornerRadius = userImageView.frame.size.height/2
-        
-    }
-    
-    func addShadowView() {
-        containerView.layer.cornerRadius = 8.0
-        containerView.layer.shadowColor = UIColor.lightGray.cgColor
-        containerView.layer.shadowOpacity = 1
-        containerView.layer.shadowOffset = CGSize(width: 0, height: 3)
-        containerView.layer.shadowRadius = 4.0
-        actionContainerView.layer.cornerRadius = 8.0
-        actionContainerView.layer.shadowColor = UIColor.lightGray.cgColor
-        actionContainerView.layer.shadowOpacity = 1
-        actionContainerView.layer.shadowOffset = CGSize(width: 0, height: 3)
-        actionContainerView.layer.shadowRadius = 4.0
         favouriteButton.roundCorners(corners: [.topLeft,.bottomLeft], radius: 8)
         deleteButton.roundCorners(corners: [.topRight,.bottomRight], radius: 8)
-        
+    }
+    
+    func addShadowView(customView: UIView) {
+        customView.layer.cornerRadius = 8.0
+        customView.layer.shadowColor = UIColor.lightGray.cgColor
+        customView.layer.shadowOpacity = 1
+        customView.layer.shadowOffset = CGSize(width: 0, height: 3)
+        customView.layer.shadowRadius = 4.0
     }
     
     func addSwipeGestureToContainerView() {
@@ -103,19 +96,8 @@ class UsersTableViewCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
     }
     
-}
-
-extension UIButton {
-    func roundCorners(corners: UIRectCorner, radius: CGFloat) {
-        let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
-        let mask = CAShapeLayer()
-        mask.path = path.cgPath
-        layer.mask = mask
-    }
 }
 
 enum ViewMode {

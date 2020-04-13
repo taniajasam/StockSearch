@@ -12,6 +12,8 @@
 		20329C0324449EA200EE67F4 /* WatchlistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20329C0224449EA200EE67F4 /* WatchlistViewModel.swift */; };
 		20329C0A2444A90700EE67F4 /* BlacklistedQuery+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20329C092444A90700EE67F4 /* BlacklistedQuery+CoreDataClass.swift */; };
 		20329C0B2444A90700EE67F4 /* BlacklistedQuery+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20329C082444A90700EE67F4 /* BlacklistedQuery+CoreDataProperties.swift */; };
+		20329C0F2444D6F900EE67F4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20329C0E2444D6F900EE67F4 /* Extensions.swift */; };
+		20329C112444DCFC00EE67F4 /* TestData.json in Resources */ = {isa = PBXBuildFile; fileRef = 20329C102444DCFC00EE67F4 /* TestData.json */; };
 		208E4B112441D03B0091B870 /* HomeViewNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208E4B102441D03B0091B870 /* HomeViewNavigator.swift */; };
 		20BD589B24420B000095F3B8 /* UsersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BD589924420B000095F3B8 /* UsersTableViewCell.swift */; };
 		20BD589C24420B000095F3B8 /* UsersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20BD589A24420B000095F3B8 /* UsersTableViewCell.xib */; };
@@ -51,6 +53,8 @@
 		20329C0224449EA200EE67F4 /* WatchlistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistViewModel.swift; sourceTree = "<group>"; };
 		20329C082444A90700EE67F4 /* BlacklistedQuery+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "BlacklistedQuery+CoreDataProperties.swift"; path = "/Users/taniajasam/Documents/Workspace/iOS/AngelAssignment/StockSearch/StockSearch/CoreData/CoreDataModels/BlacklistedQuery+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		20329C092444A90700EE67F4 /* BlacklistedQuery+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "BlacklistedQuery+CoreDataClass.swift"; path = "/Users/taniajasam/Documents/Workspace/iOS/AngelAssignment/StockSearch/StockSearch/CoreData/CoreDataModels/BlacklistedQuery+CoreDataClass.swift"; sourceTree = "<absolute>"; };
+		20329C0E2444D6F900EE67F4 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		20329C102444DCFC00EE67F4 /* TestData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TestData.json; sourceTree = "<group>"; };
 		208E4B102441D03B0091B870 /* HomeViewNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewNavigator.swift; sourceTree = "<group>"; };
 		20BD589924420B000095F3B8 /* UsersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewCell.swift; sourceTree = "<group>"; };
 		20BD589A24420B000095F3B8 /* UsersTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UsersTableViewCell.xib; sourceTree = "<group>"; };
@@ -177,6 +181,7 @@
 		20DDF2702441C26B00DAE9F3 /* StockSearchTests */ = {
 			isa = PBXGroup;
 			children = (
+				20329C102444DCFC00EE67F4 /* TestData.json */,
 				20DDF2712441C26B00DAE9F3 /* StockSearchTests.swift */,
 				20DDF2732441C26B00DAE9F3 /* Info.plist */,
 			);
@@ -244,6 +249,7 @@
 			children = (
 				20DDF2922441C63100DAE9F3 /* SSURLSession.swift */,
 				20DDF2942441C66E00DAE9F3 /* AppConstants.swift */,
+				20329C0E2444D6F900EE67F4 /* Extensions.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -384,6 +390,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20329C112444DCFC00EE67F4 /* TestData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,6 +478,7 @@
 				20DDF2852441C49C00DAE9F3 /* HomeViewModel.swift in Sources */,
 				20DDF28D2441C55F00DAE9F3 /* WebServiceHelper.swift in Sources */,
 				20DDF2892441C51500DAE9F3 /* UserResponse.swift in Sources */,
+				20329C0F2444D6F900EE67F4 /* Extensions.swift in Sources */,
 				20DDF2A12441CB5500DAE9F3 /* User+CoreDataProperties.swift in Sources */,
 				20240AFE2443869A00EE803E /* WatchlistViewController.swift in Sources */,
 				20329C0B2444A90700EE67F4 /* BlacklistedQuery+CoreDataProperties.swift in Sources */,

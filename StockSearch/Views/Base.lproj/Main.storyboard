@@ -116,6 +116,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No users added to watchlist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lVh-eU-WqN">
+                                <rect key="frame" x="83.5" y="439" width="247.5" height="18"/>
+                                <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N0n-xj-m0Y">
                                 <rect key="frame" x="0.0" y="44" width="414" height="120"/>
                                 <subviews>
@@ -163,10 +169,13 @@
                             <constraint firstItem="lsI-qs-4cK" firstAttribute="leading" secondItem="Fk7-hO-Imi" secondAttribute="leading" id="YQD-oM-StL"/>
                             <constraint firstItem="Fk7-hO-Imi" firstAttribute="bottom" secondItem="lsI-qs-4cK" secondAttribute="bottom" id="YWr-XQ-LVH"/>
                             <constraint firstItem="N0n-xj-m0Y" firstAttribute="leading" secondItem="Fk7-hO-Imi" secondAttribute="leading" id="cZd-5i-rQT"/>
+                            <constraint firstItem="lVh-eU-WqN" firstAttribute="centerY" secondItem="m0a-hd-UOj" secondAttribute="centerY" id="k9f-Wd-jpl"/>
+                            <constraint firstItem="lVh-eU-WqN" firstAttribute="centerX" secondItem="m0a-hd-UOj" secondAttribute="centerX" id="q65-Ym-5SL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Fk7-hO-Imi"/>
                     </view>
                     <connections>
+                        <outlet property="emptyWatchlistLabel" destination="lVh-eU-WqN" id="iJy-gV-gXq"/>
                         <outlet property="watchlistHeaderLabel" destination="ke5-sQ-dmS" id="7H1-Um-CWq"/>
                         <outlet property="watchlistHeaderView" destination="N0n-xj-m0Y" id="khr-Mx-WJk"/>
                         <outlet property="watchlistHeaderViewHeightConstraint" destination="7jJ-53-RvA" id="SuL-JL-J5T"/>

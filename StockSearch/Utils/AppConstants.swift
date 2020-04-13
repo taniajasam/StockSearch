@@ -15,7 +15,8 @@ struct AppConstants {
     }
     
     struct ViewIdentifiers {
-        static let userTableCellIdentifier = "UsersTableViewCell"
+        static let userTableCellIdentifier  = "UsersTableViewCell"
+        static let watchlistVCIdentifier    = "WatchlistViewController"
     }
     
     

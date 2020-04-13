@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		1ADB3DA159A4FD6550E9E8FE /* Pods_StockSearchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 935D8C1E122858F49F5E0E91 /* Pods_StockSearchTests.framework */; };
 		20240AFE2443869A00EE803E /* WatchlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20240AFD2443869A00EE803E /* WatchlistViewController.swift */; };
+		20329C0324449EA200EE67F4 /* WatchlistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20329C0224449EA200EE67F4 /* WatchlistViewModel.swift */; };
+		20329C0A2444A90700EE67F4 /* BlacklistedQuery+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20329C092444A90700EE67F4 /* BlacklistedQuery+CoreDataClass.swift */; };
+		20329C0B2444A90700EE67F4 /* BlacklistedQuery+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20329C082444A90700EE67F4 /* BlacklistedQuery+CoreDataProperties.swift */; };
 		208E4B112441D03B0091B870 /* HomeViewNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208E4B102441D03B0091B870 /* HomeViewNavigator.swift */; };
 		20BD589B24420B000095F3B8 /* UsersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BD589924420B000095F3B8 /* UsersTableViewCell.swift */; };
 		20BD589C24420B000095F3B8 /* UsersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20BD589A24420B000095F3B8 /* UsersTableViewCell.xib */; };
@@ -45,6 +48,9 @@
 
 /* Begin PBXFileReference section */
 		20240AFD2443869A00EE803E /* WatchlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistViewController.swift; sourceTree = "<group>"; };
+		20329C0224449EA200EE67F4 /* WatchlistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistViewModel.swift; sourceTree = "<group>"; };
+		20329C082444A90700EE67F4 /* BlacklistedQuery+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "BlacklistedQuery+CoreDataProperties.swift"; path = "/Users/taniajasam/Documents/Workspace/iOS/AngelAssignment/StockSearch/StockSearch/CoreData/CoreDataModels/BlacklistedQuery+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
+		20329C092444A90700EE67F4 /* BlacklistedQuery+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "BlacklistedQuery+CoreDataClass.swift"; path = "/Users/taniajasam/Documents/Workspace/iOS/AngelAssignment/StockSearch/StockSearch/CoreData/CoreDataModels/BlacklistedQuery+CoreDataClass.swift"; sourceTree = "<absolute>"; };
 		208E4B102441D03B0091B870 /* HomeViewNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewNavigator.swift; sourceTree = "<group>"; };
 		20BD589924420B000095F3B8 /* UsersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewCell.swift; sourceTree = "<group>"; };
 		20BD589A24420B000095F3B8 /* UsersTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UsersTableViewCell.xib; sourceTree = "<group>"; };
@@ -210,6 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				20DDF2842441C49C00DAE9F3 /* HomeViewModel.swift */,
+				20329C0224449EA200EE67F4 /* WatchlistViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -244,6 +251,8 @@
 		20DDF2962441C94400DAE9F3 /* CoreDataModels */ = {
 			isa = PBXGroup;
 			children = (
+				20329C092444A90700EE67F4 /* BlacklistedQuery+CoreDataClass.swift */,
+				20329C082444A90700EE67F4 /* BlacklistedQuery+CoreDataProperties.swift */,
 				20DDF29E2441CB5500DAE9F3 /* User+CoreDataClass.swift */,
 				20DDF29F2441CB5500DAE9F3 /* User+CoreDataProperties.swift */,
 			);
@@ -451,6 +460,7 @@
 			files = (
 				20DDF28F2441C56E00DAE9F3 /* NetworkManager.swift in Sources */,
 				20DDF2582441C26900DAE9F3 /* AppDelegate.swift in Sources */,
+				20329C0324449EA200EE67F4 /* WatchlistViewModel.swift in Sources */,
 				20DDF2932441C63100DAE9F3 /* SSURLSession.swift in Sources */,
 				20DDF2A02441CB5500DAE9F3 /* User+CoreDataClass.swift in Sources */,
 				208E4B112441D03B0091B870 /* HomeViewNavigator.swift in Sources */,
@@ -463,9 +473,11 @@
 				20DDF2892441C51500DAE9F3 /* UserResponse.swift in Sources */,
 				20DDF2A12441CB5500DAE9F3 /* User+CoreDataProperties.swift in Sources */,
 				20240AFE2443869A00EE803E /* WatchlistViewController.swift in Sources */,
+				20329C0B2444A90700EE67F4 /* BlacklistedQuery+CoreDataProperties.swift in Sources */,
 				20DDF28A2441C51500DAE9F3 /* HomeResponse.swift in Sources */,
 				20DDF29D2441C9B200DAE9F3 /* CoreDataManager.swift in Sources */,
 				20DDF2822441C47300DAE9F3 /* HomeViewController.swift in Sources */,
+				20329C0A2444A90700EE67F4 /* BlacklistedQuery+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

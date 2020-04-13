@@ -10,22 +10,23 @@ import Foundation
 import UIKit
 
 protocol IHomeViewNavigator {
-    init(navigator: UINavigationController?)
+    init(navigator: UIViewController?)
     func showWatchlistView()
 }
 
 class HomeViewNavigator: IHomeViewNavigator {
     
-    weak var navigator: UINavigationController?
+    weak var navigator: UIViewController?
     
-    required init(navigator: UINavigationController?) {
+    required init(navigator: UIViewController?) {
         self.navigator = navigator
     }
     
     func showWatchlistView() {
-//        if let categoryDetailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: AppConstants.ViewIdentifiers.categoryDetailVC) as? CategoryDetailViewController {
-//            categoryDetailVC.categoryViewModel.category = category
-//            self.navigator?.pushViewController(categoryDetailVC, animated: true)
-//        }
+        if let watchlistVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: AppConstants.ViewIdentifiers.watchlistVCIdentifier) as? WatchlistViewController {
+            watchlistVC.modalPresentationStyle = .fullScreen
+            watchlistVC.modalTransitionStyle = .flipHorizontal
+            self.navigator?.present(watchlistVC, animated: true, completion: nil)
+        }
     }
 }

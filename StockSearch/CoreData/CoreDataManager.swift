@@ -33,6 +33,15 @@ final class CoreDataManager {
         return [User]()
     }
     
+    func fetchBlacklistedQueries() -> [BlacklistedQuery] {
+        do {
+            let queries = try managedObjectContext.fetch(BlacklistedQuery.fetch())
+            return queries
+        } catch {
+            print("Exception occured while fetching data")
+        }
+        return [BlacklistedQuery]()
+    }
     
     private func prepareDataForDB(usersData: [UserResponse]) {
         if usersData.count > 0 {
@@ -41,6 +50,38 @@ final class CoreDataManager {
             }
             print("processed all users")
         }
+    }
+    
+    func updateEntity(user: User, completion: ()->()) {
+        let fetchRequest = User.fetch()
+        fetchRequest.predicate = NSPredicate(format: "id = %d", user.id)
+        do {
+            let fetchedUser = try managedObjectContext.fetch(fetchRequest)
+            fetchedUser[0].isFavorite = !fetchedUser[0].isFavorite
+            saveContext()
+            completion()
+        } catch {
+            print("Exception occured while fetching data")
+        }
+    }
+    
+    func deleteEntity(user: User, completion : ()->()) {
+        let fetchRequest = User.fetch()
+        fetchRequest.predicate = NSPredicate(format: "id = %d", user.id)
+        do {
+            let fetchedUser = try managedObjectContext.fetch(fetchRequest)
+            managedObjectContext.delete(fetchedUser[0])
+            saveContext()
+            completion()
+        } catch {
+            print("Exception occured while fetching data")
+        }
+    }
+    
+    func addQueryToBlacklist(query: String) {
+        let blacklistedQuery = BlacklistedQuery(context: self.managedObjectContext)
+        blacklistedQuery.query = query
+        saveContext()
     }
     
     @discardableResult
@@ -54,7 +95,7 @@ final class CoreDataManager {
         return user
     }
     
-   
+    
     // MARK: - Core Data stack
     
     private lazy var managedObjectContext = {

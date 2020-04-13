@@ -59,14 +59,21 @@ class HomeViewModel {
     }
     
     func searchUser(queryString: String) {
+        
         filteredUsers = users
         if queryString == "" {
             return
         }
         
-        if queryString.count < 2 {
+        if queryString.count < 3 {
             return
         }
+        
+        if checkQueryInBlacklist(query: queryString) {
+            filteredUsers = []
+            return
+        }
+        
         var searchedUser = [User]()
         var rankings = [User: Int]()
         for user in users ?? [] {
@@ -100,5 +107,33 @@ class HomeViewModel {
             }
         }
         filteredUsers = searchedUser
+        if searchedUser.count == 0 {
+            CoreDataManager.shared.addQueryToBlacklist(query: queryString)
+        }
+    }
+    
+    func checkQueryInBlacklist(query: String) -> Bool {
+        let blacklist = CoreDataManager.shared.fetchBlacklistedQueries()
+        let queryList = blacklist.filter{$0.query == query}
+        return queryList.count > 0 ? true : false
+    }
+    
+    func updateFavoriteStatus(index: Int) {
+        weak var weakself = self
+        if let user = users?[index] {
+            CoreDataManager.shared.updateEntity(user: user) {
+                weakself?.fetchDataFromDB()
+            }
+        }
+        
+    }
+    
+    func deleteUser(index: Int) {
+        weak var weakself = self
+        if let user = users?[index] {
+            CoreDataManager.shared.deleteEntity(user: user) {
+                weakself?.fetchDataFromDB()
+            }
+        }
     }
 }

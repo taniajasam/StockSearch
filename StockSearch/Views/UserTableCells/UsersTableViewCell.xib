@@ -64,6 +64,9 @@
                                         <inset key="imageEdgeInsets" minX="20" minY="30" maxX="20" maxY="30"/>
                                         <state key="normal" image="unfavouriteIcon"/>
                                         <state key="selected" image="favouriteIcon"/>
+                                        <connections>
+                                            <action selector="didClickOnFavoriteButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="k7A-KO-GN4"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RBA-cY-tIm">
                                         <rect key="frame" x="75" y="0.0" width="75" height="96"/>
@@ -73,6 +76,9 @@
                                         </constraints>
                                         <inset key="imageEdgeInsets" minX="24" minY="34" maxX="24" maxY="34"/>
                                         <state key="normal" image="deleteIcon"/>
+                                        <connections>
+                                            <action selector="didClickOnDeleteButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="PTg-LO-BXz"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -115,6 +121,7 @@
                 <outlet property="containerView" destination="8O3-mF-5Ny" id="LDR-4I-DM9"/>
                 <outlet property="containerViewLeadingConstraint" destination="pds-vW-jh6" id="yDu-lv-FHY"/>
                 <outlet property="deleteButton" destination="RBA-cY-tIm" id="gNs-v1-Yfa"/>
+                <outlet property="favoriteButton" destination="mUJ-Uf-NS1" id="vhg-K7-mJc"/>
                 <outlet property="favouriteButton" destination="mUJ-Uf-NS1" id="R25-oO-XZ7"/>
                 <outlet property="userDisplayNameLabel" destination="fEf-kF-55j" id="dQq-YD-egX"/>
                 <outlet property="userImageView" destination="DpJ-rs-OCy" id="ZVJ-WF-aaQ"/>
